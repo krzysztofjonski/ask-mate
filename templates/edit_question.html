@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ASK Mate</title>
+</head>
+<body>
+
+                <h1>Edit a question</h1><br>
+                    <a href="{{url_for('display_a_question', id=question['id'])}}"><button>Back to Question</button></a>
+                <form  enctype="multipart/form-data" action="{{url_for('edit_question', id = question['id'])}}" method="POST">
+                <p>
+            <label for="title">Title</label><br>
+            <textarea name="title" rows="5" cols="50">{{ question['title'] }}</textarea>
+        </p>
+        <br>
+        <p>
+            <label for="question">Question</label><br>
+            <textarea name="message" rows="10" cols="50">{{ question['message'] }}</textarea>
+                    </select><br><br><br>
+                        <input type="submit" value="Submit"/>
+                        <input type="reset" value="Reset"/>
+                    </div>
+
+                </form>
+            <a href="/">
+
+            </a>
+</body>
+</html>

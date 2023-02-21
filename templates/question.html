@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--    <style>-->
+<!--    ul.myUL {-->
+<!--  display: inline-block;-->
+<!--  text-align:center;-->
+<!--}-->
+<!--div.container {-->
+<!--  text-align: center;-->
+<!--}-->
+    <meta charset="UTF-8">
+    <title>ASK Mate</title>
+<!--    </style>-->
+</head>
+<body>
+    <div style="text-align:center">
+        <div style="margin-left:400px">
+            <div style="margin-right:400px">
+                <img src="https://images.squarespace-cdn.com/content/v1/5ea237e587e03021f9ef8cc2/1591321482139-5N4EC0SIATZQYDTX8I3G/Question-mark.jpg?format=1000w" alt="Question" width="250">
+                <h1>ASK Mate</h1>
+                <h2>Title:</h2>
+                <p>{{question['title']}}</p>
+                <h2>Details:</h2>
+                <p>{{question['message']}}</p>
+                <br><br>
+                <p>Vote Number: {{question['vote_number']}}</p>
+                <td style="width:10px"><a href="{{url_for('question_vote_up', question_id=question['id'], )}}"><button>+</button></a></td>
+                <td style="width:10px"><a href="{{url_for('question_vote_down', question_id=question['id'], )}}"><button>-</button></a></td>
+                    <br><br>
+                    <a href="{{url_for('add_new_answer', id=question['id'])}}"><button>Add new answer</button></a>
+                    <a href="{{url_for('edit_question', id=question['id'])}}"><button>Edit Question</button></a>
+                    <a href="{{url_for('remove_question', id=question['id'])}}"><button>Delete Question</button></a>
+                <h2>Answer(s):</h2>
+                {% for answer in answers %}
+                {% if answer['question_id'] == question['id'] %}
+                <p><li>{{answer['message']}}</li></p>
+                <br>
+                <p>Vote Number: {{answer['vote_number']}}</p>
+
+            <td style="width:10px"><a href="{{url_for('answer_vote_up', answer_id=answer['id'], )}}"><button>+</button></a></td>
+            <td style="width:10px"><a href="{{url_for('answer_vote_down', answer_id=answer['id'], )}}"><button>-</button></a></td>
+                    <br><br><a href="{{url_for('remove_answer', answer_id=answer['id'])}}"><button>Delete answer</button></a>
+
+                {% endif %}
+                {% endfor %}
+                <br><br>
+                    <a href="{{url_for('question_table')}}"><button>Back to Questions list</button></a>
+                <a href="/">
+        <!--        <img src="http://www.pvhc.net/img205/bkxosrojgkapqkougaih.jpg" style="width:60px;height:60px;">-->
+                </a>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

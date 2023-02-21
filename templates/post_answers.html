@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ASK Mate</title>
+</head>
+<body>
+    <form enctype="multipart/form-data" action="{{ url_for('add_new_answer', id = question['id'])}}" method="POST">
+    <h1>Post your answer</h1>
+    <br>
+
+        <label><strong>Please, be nice with the questioner!</strong></label>
+        <br>
+        <textarea name="message" rows="10" cols="50" minlength="10" placeholder="Write your answer here."></textarea>
+        <input type="hidden" value="{{question_id}}" name="question_id" id="id"/>
+        <p>
+            <input type="submit" value="Submit answer"/>
+            <input type="reset" value="Reset"/>
+        </p>
+    </form>
+        <a href="/"></a>
+</body>
+</html>

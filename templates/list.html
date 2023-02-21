@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ASK Mate</title>
+    <style>
+        }
+
+.button2 {
+    background-color: white;
+    color: black;
+    border: 2px solid #008CBA;
+}
+
+.button2:hover {
+    background-color: #008CBA;
+    color: white;
+}
+table, th, td {
+    border: 1px solid black;
+}
+    </style>
+</head>
+<body>
+    <div style="text-align:center">
+        <img src="https://images.squarespace-cdn.com/content/v1/5ea237e587e03021f9ef8cc2/1591321482139-5N4EC0SIATZQYDTX8I3G/Question-mark.jpg?format=1000w" alt="Question" width="250">
+    <h1>ASK Mate</h1>
+    <table align="center">
+        <thead>
+<!--            <img src="http://www.freeiconspng.com/uploads/question-mark-questionmark-help-talk-support-icon-27.png"-->
+<!--            width="70" height="60" align="left">-->
+<!--                <tr style="text-align: centre; ">-->
+
+            <th colspan="4"><h1 style=font-size:40px>Questions</h1></th>
+<!--                </tr>-->
+        </thead>
+        <tbody>
+        <tr>
+            <th>ID</th>
+            <th>Question title</th>
+            <th>Submission time</th>
+            <th>View number</th>
+        </tr>
+            {% for data in table %}
+                <tr>
+                    <td>{{ data['id'] }}</td>
+                    <td><a href="{{url_for('display_a_question', id=data['id'])}}">{{ data['title'] }}</a></td>
+                    <td>{{ data['submission_time'] }}</td>
+                    <td>{{ data['view_number'] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <a href="/add-question"><button class="button2">Add your question</button></a>
+    </div>
+</body>
+</html>
